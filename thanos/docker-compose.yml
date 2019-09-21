@@ -1,0 +1,68 @@
+version: '3.2'
+services:
+  query:
+    container_name: query
+    image: improbable/thanos:master-2019-07-06-0e46dd96
+    command: query --store="sidecar:10901" --store="rule:10901"
+    ports:
+    - "10902:10902"
+    # volumes:
+    # - /etc/localtime:/etc/localtime:ro
+    depends_on:
+    - rule
+    - sidecar
+  sidecar:
+    container_name: sidecar
+    image: improbable/thanos:master-2019-07-06-0e46dd96
+    command: sidecar --prometheus.url="http://prometheus:9090"
+    # volumes:
+    # - /etc/localtime:/etc/localtime:ro
+    depends_on:
+    - prometheus
+    ports:
+    - "10903:10902"
+  rule:
+    container_name: rule
+    image: improbable/thanos:master-2019-07-06-0e46dd96
+    command:
+    - rule
+    - --rule-file=/etc/rule.yml
+    - --alert.query-url=http://localhost:10902
+    - --alertmanagers.url=http://alertmanager:9093
+    - --query=query:10902
+    volumes:
+    - "./rule.yml:/etc/rule.yml"
+    # - /etc/localtime:/etc/localtime:ro
+    ports:
+    - "10904:10902"
+    depends_on:
+    - sidecar
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus
+    command: --config.file="/etc/prometheus/prometheus.yml" --web.enable-lifecycle
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    volumes:
+    - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+    ports: 
+      - "9090:9090"
+  alertmanager:
+    container_name: alertmanager
+    image: alertmanagerlocal
+    volumes:
+    - "./alertmanager.yml:/etc/alertmanager/alertmanager.yml"
+    - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "9093:9093"
+    depends_on:
+    - sidecar
+    - rule
+    - prometheus
+  webhookprinter:
+    image: webhookprinter
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+  alertprinter:
+    image: webhookprinter
+    

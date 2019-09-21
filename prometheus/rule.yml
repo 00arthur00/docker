@@ -1,0 +1,20 @@
+groups:
+- name: example
+  rules:
+  - alert: HighErrorRate
+    expr: '{__name__ =~ "net_conntrack_dialer_conn.*"}==1'
+    for: 5s
+    labels:
+      severity: page
+    annotations:
+      summary: High request latency {{ $labels.instance }} {{ $labels.__name__ }}
+# groups:
+# - name: example
+#   rules:
+#   - alert: "HighErrorRate"
+#     expr: {__name__ =~ "net_conntrack_dialer_conn.*"}==1
+#     for: 1s
+#     labels:
+#       severity: information
+#     annotations:
+#       summary: High request latency {{ $labels.instance }} {{ $labels.__name__ }}

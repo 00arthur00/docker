@@ -1,0 +1,38 @@
+version: '3.2'
+services:
+  prometheus:
+    image: prom/prometheus
+    volumes:
+    - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports: 
+    - "9090:9090"
+  m3db:
+    image: quay.io/m3db/m3dbnode
+    environment:
+      m3db_local: m3db
+    volumes:
+    - ./m3dbnode-local-etcd.yml:/etc/m3dbnode/m3dbnode.yml
+    - m3kvdb:/var/lib/m3kv
+    ports:
+    - "9000-9003:9000-9003"
+    depends_on:
+    - etcd
+  m3coordinator:
+    image: quay.io/m3db/m3coordinator
+    volumes:
+    - ./m3coordinator.yml:/etc/m3coordinator/m3coordinator.yml
+    - m3kvcooridnator:/var/lib/m3kv
+    ports:
+    - "7201-7203:7201-7203"
+    depends_on:
+    - etcd
+  etcd:
+    image: quay.io/coreos/etcd
+    container_name: etcd
+    command: etcd -name etcd -advertise-client-urls http://0.0.0.0:2379 -listen-client-urls http://0.0.0.0:2379 -listen-peer-urls http://0.0.0.0:2380 -initial-cluster-token etcd-cluster -initial-cluster "etcd=http://etcd:2380" -initial-cluster-state new
+    ports:
+      - "2379:2379"
+      - "2380:2380"
+volumes:
+  m3kvdb:
+  m3kvcooridnator:

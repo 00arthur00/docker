@@ -1,0 +1,15 @@
+version: "3"
+services:
+  web:
+    image: minio/minio:edge
+    command: server /data 
+    environment:
+      MINIO_ACCESS_KEY: admin
+      MINIO_SECRET_KEY: admin123
+    volumes:
+    - minio:/data
+    ports:
+    - "9000:9000"
+
+volumes:
+    minio:
