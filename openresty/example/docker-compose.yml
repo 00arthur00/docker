@@ -1,0 +1,10 @@
+version: "3.7"
+services: 
+  openresty:
+    image: openresty:latest
+    volumes: 
+    - "./conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf"
+    - "./conf/custom:/etc/nginx/conf.d/"
+    ports: 
+    - "80:80"
+    - "9113:9113"

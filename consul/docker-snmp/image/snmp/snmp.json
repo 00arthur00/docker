@@ -1,0 +1,673 @@
+{
+	"if_mib":{
+        "get":[
+            "1.3.6.1.4.1.674.10892.5.2.3.0",
+            "1.3.6.1.4.1.674.10892.5.4.600.50.1.5.1.1",
+            "1.3.6.1.4.1.674.10892.5.5.1.20.130.1.1.8.1",
+            "1.3.6.1.4.1.674.10892.5.4.300.50.1.5.1.1",
+            "1.3.6.1.4.1.674.10892.5.1.1.6.0",
+            "1.3.6.1.4.1.674.10892.5.1.3.2.0",
+            "1.3.6.1.4.1.674.10892.5.1.1.2.0",
+            "1.3.6.1.4.1.674.10892.5.1.3.3.0",
+            "1.3.6.1.4.1.674.10892.5.5.1.20.130.1.1.2.1",
+            "1.3.6.1.4.1.674.10892.5.2.1.0",
+            "1.3.6.1.4.1.674.10892.5.2.4.0",
+            "1.3.6.1.4.1.674.10892.5.4.300.50.1.7.1.1",
+            "1.3.6.1.4.1.674.10892.5.5.1.20.130.1.1.37.1",
+            "1.3.6.1.4.1.674.10892.5.1.1.8.0",
+            "1.3.6.1.4.1.674.10892.5.4.200.10.1.12.1",
+            "1.3.6.1.4.1.674.10892.5.4.600.60.1.5.1.1",
+            "1.3.6.1.4.1.674.10892.5.1.3.12.0",
+            "1.3.6.1.4.1.674.10892.5.4.600.60.1.15.1.1",
+            "1.3.6.1.4.1.674.10892.5.4.300.50.1.8.1.1",
+            "1.3.6.1.4.1.674.10892.5.2.2.0",
+            "1.3.6.1.4.1.674.10892.5.1.3.6.0"],
+        "walk":[
+            "1.3.6.1.4.1.674.10892.5.4.600.12.1.5.1",
+            "1.3.6.1.4.1.674.10892.5.4.600.12.1.1.1",
+            "1.3.6.1.4.1.674.10892.5.4.1100.30.1.5.1",
+            "1.3.6.1.4.1.674.10892.5.4.1100.30.1.26.1",
+            "1.3.6.1.4.1.674.10892.5.4.600.12.1.4.1",
+            "1.3.6.1.4.1.674.10892.5.4.1100.50.1.8.1",
+            "1.3.6.1.4.1.674.10892.5.4.700.20.1.10.1",
+            "1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.1",
+            "1.3.6.1.4.1.674.10892.5.4.1100.50.1.5.1",
+            "1.3.6.1.4.1.674.10892.5.4.700.20.1.13.1",
+            "1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.4",
+            "1.3.6.1.4.1.674.10892.5.4.700.20.1.6.1",
+            "1.3.6.1.4.1.674.10892.5.4.700.20.1.11.1",
+            "1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.24",
+            "1.3.6.1.4.1.674.10892.5.4.700.20.1.12.1",
+            "1.3.6.1.4.1.674.10892.5.4.1100.90.1.30.1",
+            "1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.49",
+            "1.3.6.1.4.1.674.10892.5.4.700.20.1.5.1",
+            "1.3.6.1.4.1.674.10892.5.4.600.12.1.11.1",
+            "1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.20",
+            "1.3.6.1.4.1.674.10892.5.4.1100.90.1.3.1",
+            "1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.13",
+            "1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.36",
+            "1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.4",
+            "1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.2",
+            "1.3.6.1.4.1.674.10892.5.4.700.20.1.8.1"],
+        "metrics":[
+            {
+              "external_labels": {
+                "app": "Power",
+                "name": "Power Supply {#SNMPINDEX} Status"
+              },
+              "help": "app:Power name:Power Supply {#SNMPINDEX} Status  oid:1.3.6.1.4.1.674.10892.5.4.600.12.1.5.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "PowerSupplyStatus",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.600.12.1.5.1",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "name": "Power Supply Enumeration"
+              },
+              "help": "name:Power Supply Enumeration oid:1.3.6.1.4.1.674.10892.5.4.600.12.1.1.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "PowerSupplies",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.600.12.1.1.1",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "Processor",
+                "name": "Processor {#SNMPVALUE} Status"
+              },
+              "help": "app:Processor name:Processor {#SNMPVALUE} Status  oid:1.3.6.1.4.1.674.10892.5.4.1100.30.1.5.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "ProcStatus",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.1100.30.1.5.1",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "name": "Processor Enumeration"
+              },
+              "help": "name:Processor Enumeration oid:1.3.6.1.4.1.674.10892.5.4.1100.30.1.26.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "ProcEnum",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.1100.30.1.26.1",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "Power",
+                "name": "Power Supply {#SNMPINDEX} State Settings"
+              },
+              "help": "app:Power name:Power Supply {#SNMPINDEX} State Settings  oid:1.3.6.1.4.1.674.10892.5.4.600.12.1.4.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "PowerSupplyStateSettings",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.600.12.1.4.1",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "name": "Memory Enumeration"
+              },
+              "help": "name:Memory Enumeration oid:1.3.6.1.4.1.674.10892.5.4.1100.50.1.8.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "MemoryEnum",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.1100.50.1.8.1",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "Temperatures",
+                "name": "Temperature Sensor {#SNMPVALUE} Critical Up-Limit"
+              },
+              "help": "app:Temperatures name:Temperature Sensor {#SNMPVALUE} Critical Up-Limit  oid:1.3.6.1.4.1.674.10892.5.4.700.20.1.10.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "TempCritUpLimit",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.700.20.1.10.1",
+              "type": "Double"
+            },
+            {
+              "external_labels": {
+                "name": "Disk Volume Enumeration"
+              },
+              "help": "name:Disk Volume Enumeration oid:1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "VolumeEnum",
+              "oid": "1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.1",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "Memory",
+                "name": "Memory Slot {#SNMPVALUE} Status"
+              },
+              "help": "app:Memory name:Memory Slot {#SNMPVALUE} Status  oid:1.3.6.1.4.1.674.10892.5.4.1100.50.1.5.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "MemStatus",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.1100.50.1.5.1",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "Temperatures",
+                "name": "Temperature Sensor {#SNMPVALUE} Critical Low-Limit"
+              },
+              "help": "app:Temperatures name:Temperature Sensor {#SNMPVALUE} Critical Low-Limit  oid:1.3.6.1.4.1.674.10892.5.4.700.20.1.13.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "TempCritLowLimit",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.700.20.1.13.1",
+              "type": "Double"
+            },
+            {
+              "external_labels": {
+                "app": "Disks / Storage",
+                "name": "Volume {#SNMPINDEX} : Virtual Disk State"
+              },
+              "help": "app:Disks / Storage name:Volume {#SNMPINDEX} : Virtual Disk State  oid:1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.4",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "VolumeDiskState",
+              "oid": "1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.4",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "Temperatures",
+                "name": "Temperature Sensor {#SNMPVALUE} Value"
+              },
+              "help": "app:Temperatures name:Temperature Sensor {#SNMPVALUE} Value  oid:1.3.6.1.4.1.674.10892.5.4.700.20.1.6.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "TempValue",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.700.20.1.6.1",
+              "type": "Double"
+            },
+            {
+              "external_labels": {
+                "app": "Temperatures",
+                "name": "Temperature Sensor {#SNMPVALUE} Warning Up-Limit"
+              },
+              "help": "app:Temperatures name:Temperature Sensor {#SNMPVALUE} Warning Up-Limit  oid:1.3.6.1.4.1.674.10892.5.4.700.20.1.11.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "TempWarnUpLimit",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.700.20.1.11.1",
+              "type": "Double"
+            },
+            {
+              "external_labels": {
+                "app": "Disks / Storage",
+                "name": "Disk {#SNMPINDEX} : Disk Status"
+              },
+              "help": "app:Disks / Storage name:Disk {#SNMPINDEX} : Disk Status  oid:1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.24",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "DiskStatus",
+              "oid": "1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.24",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "Temperatures",
+                "name": "Temperature Sensor {#SNMPVALUE} Warning Low-Limit"
+              },
+              "help": "app:Temperatures name:Temperature Sensor {#SNMPVALUE} Warning Low-Limit  oid:1.3.6.1.4.1.674.10892.5.4.700.20.1.12.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "TempWarnLowLimit",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.700.20.1.12.1",
+              "type": "Double"
+            },
+            {
+              "external_labels": {
+                "name": "Network Enumeration"
+              },
+              "help": "name:Network Enumeration oid:1.3.6.1.4.1.674.10892.5.4.1100.90.1.30.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "NetworkEnum",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.1100.90.1.30.1",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "Disks / Storage",
+                "name": "Disk {#SNMPINDEX} : SSD RemainingRatedWriteEndurance"
+              },
+              "help": "app:Disks / Storage name:Disk {#SNMPINDEX} : SSD RemainingRatedWriteEndurance  oid:1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.49",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "DiskRemainingRatedWriteEndurance",
+              "oid": "1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.49",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "Temperatures",
+                "name": "Temperature Sensor {#SNMPVALUE} Status"
+              },
+              "help": "app:Temperatures name:Temperature Sensor {#SNMPVALUE} Status  oid:1.3.6.1.4.1.674.10892.5.4.700.20.1.5.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "TempStatus",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.700.20.1.5.1",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "Power",
+                "name": "Power Supply {#SNMPINDEX} Sensor State"
+              },
+              "help": "app:Power name:Power Supply {#SNMPINDEX} Sensor State  oid:1.3.6.1.4.1.674.10892.5.4.600.12.1.11.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "PowerSupplySensorState",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.600.12.1.11.1",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "Disks / Storage",
+                "name": "Volume {#SNMPINDEX} : Status"
+              },
+              "help": "app:Disks / Storage name:Volume {#SNMPINDEX} : Status  oid:1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.20",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "VolumeStatus",
+              "oid": "1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.20",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "Network Cards",
+                "name": "{#SNMPVALUE} : Status"
+              },
+              "help": "app:Network Cards name:{#SNMPVALUE} : Status  oid:1.3.6.1.4.1.674.10892.5.4.1100.90.1.3.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "NetStatus",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.1100.90.1.3.1",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "Disks / Storage",
+                "name": "Volume {#SNMPINDEX} : State"
+              },
+              "help": "app:Disks / Storage name:Volume {#SNMPINDEX} : State  oid:1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.13",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "VolumeState",
+              "oid": "1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.13",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "Disks / Storage",
+                "name": "Volume {#SNMPINDEX} : Name"
+              },
+              "help": "app:Disks / Storage name:Volume {#SNMPINDEX} : Name  oid:1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.36",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "VolumeName",
+              "oid": "1.3.6.1.4.1.674.10892.5.5.1.20.140.1.1.36",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "Disks / Storage",
+                "name": "Disk {#SNMPINDEX} : Disk State"
+              },
+              "help": "app:Disks / Storage name:Disk {#SNMPINDEX} : Disk State  oid:1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.4",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "DiskState",
+              "oid": "1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.4",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "name": "Disk Enumeration"
+              },
+              "help": "name:Disk Enumeration oid:1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.2",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "DiskEnumeration",
+              "oid": "1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.2",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "name": "Temperature Enumeration"
+              },
+              "help": "name:Temperature Enumeration oid:1.3.6.1.4.1.674.10892.5.4.700.20.1.8.1",
+              "indexes": [
+                {
+                  "labelname": "snmpindex",
+                  "type": "gauge"
+                }
+              ],
+              "name": "TempEnum",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.700.20.1.8.1",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "Disks / Storage",
+                "name": "Overall System Storage Status"
+              },
+              "help": "app:Disks / Storage name:Overall System Storage Status  oid:1.3.6.1.4.1.674.10892.5.2.3.0",
+              "name": "GlobalSystemStorageStatus",
+              "oid": "1.3.6.1.4.1.674.10892.5.2.3.0",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "System Info",
+                "name": "CMOS Battery Status"
+              },
+              "help": "app:System Info name:CMOS Battery Status  oid:1.3.6.1.4.1.674.10892.5.4.600.50.1.5.1.1",
+              "name": "CMOSBatteryStatus",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.600.50.1.5.1.1",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "Disks / Storage",
+                "name": "RAID Controller : Firmware Version"
+              },
+              "help": "app:Disks / Storage name:RAID Controller : Firmware Version  oid:1.3.6.1.4.1.674.10892.5.5.1.20.130.1.1.8.1",
+              "name": "RAIDControllerFirmware",
+              "oid": "1.3.6.1.4.1.674.10892.5.5.1.20.130.1.1.8.1",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "System Info",
+                "name": "System BIOS Status"
+              },
+              "help": "app:System Info name:System BIOS Status  oid:1.3.6.1.4.1.674.10892.5.4.300.50.1.5.1.1",
+              "name": "SystemBiosStatus",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.300.50.1.5.1.1",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "System Info",
+                "name": "DRAC Access URL"
+              },
+              "help": "app:System Info name:DRAC Access URL  oid:1.3.6.1.4.1.674.10892.5.1.1.6.0",
+              "name": "idrac_acessurl",
+              "oid": "1.3.6.1.4.1.674.10892.5.1.1.6.0",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "System Info",
+                "name": "System Asset Tag"
+              },
+              "help": "app:System Info name:System Asset Tag  oid:1.3.6.1.4.1.674.10892.5.1.3.2.0",
+              "name": "idrac_assettag",
+              "oid": "1.3.6.1.4.1.674.10892.5.1.3.2.0",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "System Info",
+                "name": "DRAC version"
+              },
+              "help": "app:System Info name:DRAC version  oid:1.3.6.1.4.1.674.10892.5.1.1.2.0",
+              "name": "idrac_version",
+              "oid": "1.3.6.1.4.1.674.10892.5.1.1.2.0",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "System Info",
+                "name": "System Express Service Code"
+              },
+              "help": "app:System Info name:System Express Service Code  oid:1.3.6.1.4.1.674.10892.5.1.3.3.0",
+              "name": "idrac_esc",
+              "oid": "1.3.6.1.4.1.674.10892.5.1.3.3.0",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "Disks / Storage",
+                "name": "RAID Controller : Name"
+              },
+              "help": "app:Disks / Storage name:RAID Controller : Name  oid:1.3.6.1.4.1.674.10892.5.5.1.20.130.1.1.2.1",
+              "name": "RAIDControllerName",
+              "oid": "1.3.6.1.4.1.674.10892.5.5.1.20.130.1.1.2.1",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "System Info",
+                "name": "Overall System Rollup Status"
+              },
+              "help": "app:System Info name:Overall System Rollup Status  oid:1.3.6.1.4.1.674.10892.5.2.1.0",
+              "name": "GlobalSystemRollupStatus",
+              "oid": "1.3.6.1.4.1.674.10892.5.2.1.0",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "Power",
+                "name": "Overall System Power State"
+              },
+              "help": "app:Power name:Overall System Power State  oid:1.3.6.1.4.1.674.10892.5.2.4.0",
+              "name": "GlobalSystemPowerState",
+              "oid": "1.3.6.1.4.1.674.10892.5.2.4.0",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "System Info",
+                "name": "BIOS Date"
+              },
+              "help": "app:System Info name:BIOS Date  oid:1.3.6.1.4.1.674.10892.5.4.300.50.1.7.1.1",
+              "name": "BiosDate",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.300.50.1.7.1.1",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "Disks / Storage",
+                "name": "RAID Controller : Status"
+              },
+              "help": "app:Disks / Storage name:RAID Controller : Status  oid:1.3.6.1.4.1.674.10892.5.5.1.20.130.1.1.37.1",
+              "name": "RAIDControllerStatus",
+              "oid": "1.3.6.1.4.1.674.10892.5.5.1.20.130.1.1.37.1",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "System Info",
+                "name": "DRAC Firmware version"
+              },
+              "help": "app:System Info name:DRAC Firmware version  oid:1.3.6.1.4.1.674.10892.5.1.1.8.0",
+              "name": "idrac_firmwareversion",
+              "oid": "1.3.6.1.4.1.674.10892.5.1.1.8.0",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "Voltages",
+                "name": "Voltage Status Combined"
+              },
+              "help": "app:Voltages name:Voltage Status Combined  oid:1.3.6.1.4.1.674.10892.5.4.200.10.1.12.1",
+              "name": "VoltageStatusCombined",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.200.10.1.12.1",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "Power",
+                "name": "Power Usage Sensor Status"
+              },
+              "help": "app:Power name:Power Usage Sensor Status  oid:1.3.6.1.4.1.674.10892.5.4.600.60.1.5.1.1",
+              "name": "PowerUsageSensorStatus",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.600.60.1.5.1.1",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "System Info",
+                "name": "System Model Name"
+              },
+              "help": "app:System Info name:System Model Name  oid:1.3.6.1.4.1.674.10892.5.1.3.12.0",
+              "name": "systemModelName",
+              "oid": "1.3.6.1.4.1.674.10892.5.1.3.12.0",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "Power",
+                "name": "Power Usage Minimum Idle Power"
+              },
+              "help": "app:Power name:Power Usage Minimum Idle Power  oid:1.3.6.1.4.1.674.10892.5.4.600.60.1.15.1.1",
+              "name": "PowerUsageMinIdle",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.600.60.1.15.1.1",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "System Info",
+                "name": "BIOS Version"
+              },
+              "help": "app:System Info name:BIOS Version  oid:1.3.6.1.4.1.674.10892.5.4.300.50.1.8.1.1",
+              "name": "BiosVersion",
+              "oid": "1.3.6.1.4.1.674.10892.5.4.300.50.1.8.1.1",
+              "type": "DisplayString"
+            },
+            {
+              "external_labels": {
+                "app": "System Info",
+                "name": "Overall System LCD Status"
+              },
+              "help": "app:System Info name:Overall System LCD Status  oid:1.3.6.1.4.1.674.10892.5.2.2.0",
+              "name": "GlobalSystemLCDStatus",
+              "oid": "1.3.6.1.4.1.674.10892.5.2.2.0",
+              "type": "gauge"
+            },
+            {
+              "external_labels": {
+                "app": "System Info",
+                "name": "System OS Name"
+              },
+              "help": "app:System Info name:System OS Name  oid:1.3.6.1.4.1.674.10892.5.1.3.6.0",
+              "name": "systemOSName",
+              "oid": "1.3.6.1.4.1.674.10892.5.1.3.6.0",
+              "type": "DisplayString"
+            }]
+    }
+}

@@ -1,0 +1,27 @@
+[
+	{
+		"key": "alertmanager/global",
+		"flags": 0,
+		"value": "ewogICAgInJlc29sdmVfdGltZW91dCI6ICIxaCIsCiAgICAiaHR0cF9jb25maWciOiB7CiAgICB9LAogICAgInNtdHBfaGVsbG8iOiAibG9jYWxob3N0IiwKICAgICJzbXRwX3JlcXVpcmVfdGxzIjogdHJ1ZSwKICAgICJwYWdlcmR1dHlfdXJsIjogImh0dHBzOi8vZXZlbnRzLnBhZ2VyZHV0eS5jb20vdjIvZW5xdWV1ZSIsCiAgICAiaGlwY2hhdF9hcGlfdXJsIjogImh0dHBzOi8vYXBpLmhpcGNoYXQuY29tLyIsCiAgICAib3BzZ2VuaWVfYXBpX3VybCI6ICJodHRwczovL2FwaS5vcHNnZW5pZS5jb20vIiwKICAgICJ3ZWNoYXRfYXBpX3VybCI6ICJodHRwczovL3F5YXBpLndlaXhpbi5xcS5jb20vY2dpLWJpbi8iLAogICAgInZpY3Rvcm9wc19hcGlfdXJsIjogImh0dHBzOi8vYWxlcnQudmljdG9yb3BzLmNvbS9pbnRlZ3JhdGlvbnMvZ2VuZXJpYy8yMDEzMTExNC9hbGVydC8iCiAgfQ=="
+	},
+	{
+		"key": "alertmanager/inhibit_rules",
+		"flags": 0,
+		"value": "WwogICAgewogICAgICAic291cmNlX21hdGNoIjogewogICAgICAgICJzZXZlcml0eSI6ICJjcml0aWNhbCIKICAgICAgfSwKICAgICAgInRhcmdldF9tYXRjaCI6IHsKICAgICAgICAic2V2ZXJpdHkiOiAid2FybmluZyIKICAgICAgfSwKICAgICAgImVxdWFsIjogWwogICAgICAgICJhbGVydG5hbWUiLAogICAgICAgICJqb2IiLAogICAgICAgICJpbnN0YW5jZSIKICAgICAgXQogICAgfQogIF0="
+	},
+	{
+		"key": "alertmanager/receivers",
+		"flags": 0,
+		"value": "WwogICAgewogICAgICAibmFtZSI6ICJ3ZWIuaG9vayIsCiAgICAgICJ3ZWJob29rX2NvbmZpZ3MiOiBbCiAgICAgICAgewogICAgICAgICAgInNlbmRfcmVzb2x2ZWQiOiB0cnVlLAogICAgICAgICAgImh0dHBfY29uZmlnIjogewogICAgICAgICAgfSwKICAgICAgICAgICJ1cmwiOiAiaHR0cDovLzEwLjEwNC4xMDQuMjgvYWNjb3VudHMvcmVjZWl2ZXIvIgogICAgICAgIH0KICAgICAgXQogICAgfQogIF0="
+	},
+	{
+		"key": "alertmanager/route",
+		"flags": 0,
+		"value": "ewogICAgInJlY2VpdmVyIjogIndlYi5ob29rIiwKICAgICJncm91cF9ieSI6IFsKICAgICAgImpvYiIsCiAgICAgICJhbGVydG5hbWUiCiAgICBdLAogICAgInJvdXRlcyI6IFsKICAgICAgewogICAgICAgICJtYXRjaCI6IHsKICAgICAgICAgICJkb21haW4iOiAiaGFyZHdhcmVfc25tcCIKICAgICAgICB9LAogICAgICAgICJncm91cF93YWl0IjogIjBzIiwKICAgICAgICAiZ3JvdXBfaW50ZXJ2YWwiOiAiNW0iLAogICAgICAgICJyZXBlYXRfaW50ZXJ2YWwiOiAiMTJoIgogICAgICB9CiAgICBdLAogICAgImdyb3VwX3dhaXQiOiAiMHMiLAogICAgImdyb3VwX2ludGVydmFsIjogIjVtIiwKICAgICJyZXBlYXRfaW50ZXJ2YWwiOiAiNW0iCiAgfQ=="
+	},
+	{
+		"key": "alertmanager/templates",
+		"flags": 0,
+		"value": "WwogICAgImRlZmF1bHQudG1wbCIKXQ=="
+	}
+]

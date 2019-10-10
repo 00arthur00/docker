@@ -1,0 +1,64 @@
+{{- $prefix := env "ALERTMANAGERPREFIX" -}}
+
+{{- $global           :=  printf "%s/global" $prefix -}}
+{{- $route            :=  printf "%s/route" $prefix -}}
+{{- $inhibit_rules    :=  printf "%s/inhibit_rules" $prefix -}}
+{{- $receivers        :=  printf "%s/receivers" $prefix -}}
+{{- $templates        :=  printf "%s/templates" $prefix -}}
+
+{
+  "global":
+  {{key $global|parseJSON|toJSONPretty|indent 2}}
+  
+  {{- /* rule_files */ -}}
+  ,
+  "route":
+  {{key $route|parseJSON|toJSONPretty|indent 2}}
+
+  {{- /* alerting */ -}}
+  ,
+  "inhibit_rules":[
+	{{$configs := keyOrDefault $inhibit_rules "[]"|parseJSON -}}
+    {{- $count:= 0 -}}
+    {{- $len := len $configs|subtract 1 -}}
+        {{- range $key,$value:= $configs -}}
+
+            {{- $value | toJSONPretty |indent 4 -}}
+        
+            {{- if lt $count $len -}}
+                ,
+            {{- end -}}
+        
+            {{- $count = add $count 1 -}}
+        
+        {{- end -}}
+  ],
+  "receivers":[
+	{{$configs := keyOrDefault $receivers "[]"|parseJSON -}}
+    {{- $count:= 0 -}}
+    {{- $len := len $configs|subtract 1 -}}
+        {{- range $key,$value:= $configs -}}
+
+            {{- $value | toJSONPretty |indent 4 -}}
+        
+            {{- if lt $count $len -}}
+                ,
+            {{- end -}}
+        
+            {{- $count = add $count 1 -}}
+        
+        {{- end -}}
+  ],
+  "templates":[
+	{{- $configs := keyOrDefault $templates "[]"|parseJSON -}}
+    {{- $count:= 0 -}}
+    {{- $len := len $configs|subtract 1 -}}
+        {{range $key,$value:= $configs}}
+    "{{$value}}"  
+            {{- if lt $count $len -}}
+                ,
+            {{- end}}        
+            {{- $count = add $count 1 -}}
+        {{- end}}
+  ]
+}

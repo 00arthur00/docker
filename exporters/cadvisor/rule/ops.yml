@@ -1,0 +1,15 @@
+groups:
+- name: snmpminitor
+  rules:
+  - alert: up,server
+    expr: up==0
+    labels:
+      monitor_domain: ops
+      monitor_metric: Linux Disk
+      sender: sms,email
+      sender_group: OPSTEST
+      severity: warning
+      template_name: 通用模板
+      template_type: 系统应用
+    annotations:
+      summary: "current value: {{ $value }}"

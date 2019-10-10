@@ -1,0 +1,50 @@
+{{- $prefix := env "SNMPPREFIX" -}}
+{{- $getPath :=  printf "%s/get" $prefix -}}
+{{- $walkPath := printf "%s/walk" $prefix -}}
+{{- $metricsPath := printf "%s/metrics" $prefix -}}
+{
+	"if_mib":{
+        "get":[
+        {{- $snmpGets := key $getPath |parseJSON -}}
+        {{- $count:= 0 -}}
+        {{- $len := len $snmpGets|subtract 1 -}}
+        {{- range $key,$value:= $snmpGets}}
+            "{{ $value }}"
+            {{- if lt $count $len -}}
+                ,
+            {{- end -}}
+        
+            {{- $count = add $count 1 -}}
+        
+        {{- end -}}
+        ],
+        "walk":[
+        {{- $snmpWalks := key $walkPath|parseJSON -}}
+        {{- $count:= 0 -}}
+        {{- $len := len $snmpWalks|subtract 1 -}}
+        {{- range $key,$value:= $snmpWalks}}
+            "{{ $value }}"
+            {{- if lt $count $len -}}
+                ,
+            {{- end -}}
+        
+            {{- $count = add $count 1 -}}
+        
+        {{- end -}}
+        ],
+        "metrics":[
+        {{- $metrics := key $metricsPath|parseJSON -}}
+        {{- $count:= 0 -}}
+        {{- $len := len $metrics|subtract 1 -}}
+        {{- range $key,$value:= $metrics}}
+{{ $value|toJSONPretty|indent 12 }}
+            {{- if lt $count $len -}}
+                ,
+            {{- end -}}
+        
+            {{- $count = add $count 1 -}}
+        
+        {{- end -}}
+        ]
+    }
+}

@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  consul:
+    image: hashicorp/consul-template:0.20.0-alpine
+    volumes:
+    - ./snmp_exporter.ctmpl:/consul-template/config/snmp_exporter.ctmpl
+    - data:/consul-template/data
+    environment:
+      SNMPPREFIX: exporter/snmp
+    command:
+    -  consul-template
+    - -consul-addr=127.0.0.1:8500
+    - -template
+    - "/consul-template/config/snmp_exporter.ctmpl:/consul-template/data/snmp.json:curl -X POST http://snmp_exporter:9116/-/reload"
+    restart: always
+  
+  snmp_exporter:
+    image: 00arthur00/snmp_exporter
+    container_name: snmp_exporter
+    volumes:
+    - data:/etc/exporter
+    ports:
+    - "9116:9116"
+    restart: always
+  
+volumes:
+  data:

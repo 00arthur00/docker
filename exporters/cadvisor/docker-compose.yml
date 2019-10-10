@@ -1,0 +1,38 @@
+version: '3.3'
+services:
+  cadvisor:
+    image: google/cadvisor
+    volumes:
+    - "/:/rootfs:ro"
+    - "/var/run:/var/run:ro"
+    - "/sys:/sys:ro"
+    - "/var/lib/docker/:/var/lib/docker:ro"
+    - "/dev/disk/:/dev/disk:ro"
+    ports:
+    - "8080:8080"
+  node_exporter:
+    image: quay.io/prometheus/node-exporter
+    network_mode: host
+    pid: host
+    command:
+    - --path.rootfs
+    - /host
+    - --collector.processes
+    - --collector.devstat
+    volumes:
+    - "/:/host:ro,rslave"
+    ports:
+    - "9100:9100"
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    command:
+    - --config.file=/etc/prometheus/prometheus.yml
+    - --web.enable-lifecycle
+    - --web.external-url=http://localhost:9090
+    volumes:
+    - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    - ./rule:/prometheus/rule/
+    ports: 
+    - "9090:9090"

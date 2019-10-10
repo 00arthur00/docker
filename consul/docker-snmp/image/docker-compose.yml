@@ -1,0 +1,8 @@
+version: "3.7"
+services:
+  snmp_exporter:
+    image: 00arthur00/snmp_exporter
+    volumes:
+    - ./snmp.json:/etc/exporter/snmp.json
+    ports:
+    - "9116:9116"

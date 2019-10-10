@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  consul:
+    image: hashicorp/consul-template:0.20.0-alpine
+    volumes:
+    - ./prometheus.ctmpl:/consul-template/config/prometheus.ctmpl
+    - ./rule.ctmpl:/consul-template/config/rule.ctmpl
+    - data:/consul-template/data
+    - rules:/consul-template/data/etc/config/rules/ops
+    environment:
+      PROMETHEUSPREFIX: prometheus
+      RULEPREFIX: alert_rules/ops
+    command:
+    -  consul-template
+    - -consul-addr=127.0.0.1:8500
+    - -template
+    - "/consul-template/config/prometheus.ctmpl:/consul-template/data/prometheus.json:curl -X POST http://prometheus:9090/-/reload"
+    - -template
+    - "/consul-template/config/rule.ctmpl:/consul-template/data/etc/config/rules/ops/rule.json:curl -X POST http://prometheus:9090/-/reload"
+    restart: always
+
+  prometheus:
+    image: prom/prometheus:v2.11.1
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    volumes:
+    - data:/prometheus/config
+    - rules:/prometheus/config/etc/config/rules/ops
+    command:
+    - "--web.enable-lifecycle"
+    - "--config.file=/prometheus/config/prometheus.json"
+    depends_on:
+    - consul
+    restart: always
+
+  
+volumes:
+  data:
+  rules:

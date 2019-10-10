@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  thanos-sidecar:
+    # image: improbable/thanos:v0.6.0
+    image: thanos:test
+    environment: 
+      DEBUGNAME: hardware_snmp
+    command: 
+    - sidecar
+    - --debug.name=${DEBUGNAME}
+    - --grpc-address=0.0.0.0:19991
+    - --http-address=0.0.0.0:19191
+    - --prometheus.url=http://10.212.26.108:9090
+    ports:
+    - "19991:19991"
+    - "19191:19191"
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 0
+        delay: 10s
+      restart_policy:
+        condition: on-failure

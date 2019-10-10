@@ -1,0 +1,112 @@
+{{- $prefix := env "PROMETHEUSPREFIX" -}}
+
+{{- $global                :=  printf "%s/global" $prefix -}}
+{{- $rule_files            :=  printf "%s/rule_files" $prefix -}}
+{{- $scrape_configs        :=  printf "%s/scrape_configs" $prefix -}}
+{{- $alert_relabel_configs :=  printf "%s/alert_relabel_configs" $prefix -}}
+{{- $alertmanagers         :=  printf "%s/alertmanagers" $prefix -}}
+{{- $remote_write          :=  printf "%s/remote_write" $prefix -}}
+{{- $remote_read           :=  printf "%s/remote_read" $prefix -}}
+
+{
+  "global":
+  {{key $global|parseJSON|toJSONPretty|indent 2}}
+  
+  {{- /* rule_files */ -}}
+  ,
+  "rule_files":[
+	{{- $configs := keyOrDefault $rule_files "[]"|parseJSON -}}
+    {{- $count:= 0 -}}
+    {{- $len := len $configs|subtract 1 -}}
+        {{range $key,$value:= $configs}}
+    "{{$value}}"  
+            {{- if lt $count $len -}}
+                ,
+            {{- end}}        
+            {{- $count = add $count 1 -}}
+        {{- end}}
+  ],
+  "scrape_configs":	[
+	{{$configs := tree $scrape_configs|explode -}}
+    {{- $count:= 0 -}}
+    {{- $len := len $configs|subtract 1 -}}
+        {{- range $key,$value:= $configs -}}
+
+            {{ $value | parseJSON | toJSONPretty |indent 2 -}}
+        
+            {{- if lt $count $len -}}
+                ,
+            {{- end -}}
+        
+            {{- $count = add $count 1 -}}
+        
+        {{- end -}}]
+
+  {{- /* alerting */ -}}
+  ,
+  "alerting": {
+	"alertmanagers": [
+    {{$configs := keyOrDefault $alertmanagers "[]"|parseJSON -}}
+    {{- $count:= 0 -}}
+    {{- $len := len $configs|subtract 1 -}}
+        {{- range $key,$value:= $configs -}}
+
+            {{- $value | toJSONPretty |indent 4 -}}
+        
+            {{- if lt $count $len -}}
+                ,
+            {{- end -}}
+        
+            {{- $count = add $count 1 -}}
+        
+        {{- end -}}],
+	"alert_relabel_configs":[
+    {{$configs := keyOrDefault $alert_relabel_configs "[]"|parseJSON -}}
+    {{- $count:= 0 -}}
+    {{- $len := len $configs|subtract 1 -}}
+        {{- range $key,$value:= $configs -}}
+
+            {{- $value | toJSONPretty |indent 4 -}}
+        
+            {{- if lt $count $len -}}
+                ,
+            {{- end -}}
+        
+            {{- $count = add $count 1 -}}
+        
+        {{- end -}}]
+  },
+
+  "remote_write":[
+	{{$configs := keyOrDefault $remote_write "[]"|parseJSON -}}
+    {{- $count:= 0 -}}
+    {{- $len := len $configs|subtract 1 -}}
+        {{- range $key,$value:= $configs -}}
+
+            {{- $value | toJSONPretty |indent 4 -}}
+        
+            {{- if lt $count $len -}}
+                ,
+            {{- end -}}
+        
+            {{- $count = add $count 1 -}}
+        
+        {{- end -}}
+  ],
+  "remote_read":[
+	{{$configs := keyOrDefault $remote_read "[]"|parseJSON -}}
+    {{- $count:= 0 -}}
+    {{- $len := len $configs|subtract 1 -}}
+        {{- range $key,$value:= $configs -}}
+
+            {{- $value | toJSONPretty |indent 4 -}}
+        
+            {{- if lt $count $len -}}
+                ,
+            {{- end -}}
+        
+            {{- $count = add $count 1 -}}
+        
+        {{- end -}}
+  ] 
+}

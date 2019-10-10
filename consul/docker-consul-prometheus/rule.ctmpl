@@ -1,0 +1,17 @@
+{{- $prefix := env "RULEPREFIX" -}}
+{"groups":[
+    {{- $groups := tree $prefix |explode -}}
+    {{- $count:= 0 -}}
+    {{- $len := len $groups|subtract 1 -}}
+        {{- range $key,$value:= $groups -}}
+
+            {{- $value | parseJSON | toJSONPretty -}}
+        
+            {{- if lt $count $len -}}
+                ,
+            {{- end -}}
+        
+            {{- $count = add $count 1 -}}
+        
+        {{- end -}}
+]}

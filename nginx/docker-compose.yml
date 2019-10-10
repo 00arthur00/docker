@@ -1,11 +1,15 @@
-version: '3.2'
+version: '3.3'
 services:
   nginx:
-    image: nginx
+    image: openresty/openresty:centos-rpm
+    ports:
+    - "8018:80"
     volumes:
-    - ./nginx/:/etc/nginx/conf.d/
-    ports: 
-    - "8080:80"
-  http:
+    - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    - ./access.log:/data/nginx/1.14.1/logs/web1/access.log
+  app:
+    image: python
+    command: python -m http.server
+  app2:
     image: python
     command: python -m http.server
