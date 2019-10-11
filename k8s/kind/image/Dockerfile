@@ -9,4 +9,6 @@ RUN apk update \
     && mv kind-linux-amd64 /usr/local/bin/kind \
     && rm -rf /var/cache/apk/*
 
+WORKDIR /kind
+
 ENTRYPOINT ["/usr/local/bin/kind"]
