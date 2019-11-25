@@ -3,6 +3,9 @@
     "Address": "192.168.10.11",
     "Service": {
       "Service": "redis",
-      "Port": 8000
+      "Port": 8000,
+      "tags":[
+        "prod"
+      ]
     }
 }
