@@ -1,0 +1,8 @@
+{
+    "Node": "192.168.10.10",
+    "Address": "192.168.10.10",
+    "Service": {
+      "Service": "redis",
+      "Port": 8000
+    }
+}
