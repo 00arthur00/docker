@@ -1,2 +1,2 @@
 #!/bin/sh
-kind delete cluster kind
+kind delete cluster --name kind
