@@ -1,3 +1,4 @@
-FROM amd64/busybox
-COPY ./testDockerfile /home/
-CMD /home/testDockerfile
+FROM alpine:latest
+COPY ./testDockerfile /usr/local/bin/testDockerfile
+ENTRYPOINT [ "/usr/local/bin/testDockerfile" ]
+CMD [ "-mongo.uri","mongodb://mongo:27017"]

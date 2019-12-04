@@ -1,16 +1,30 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	"context"
+	"flag"
+	"log"
+	"time"
+
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello %s!", r.URL.Path[1:])
-}
-
 func main() {
-	http.HandleFunc("/", handler)
-	fmt.Println("Server running...")
-	http.ListenAndServe(":8080", nil)
+
+	var mongouri string
+	flag.StringVar(&mongouri, "mongo.uri", "mongodb://mongo:27017", "mongodb uri")
+	flag.Parse()
+
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI(mongouri))
+	if err != nil {
+		panic(err)
+	}
+	for {
+		result, err := client.Database("umbapi").Collection("delete_me").InsertOne(context.Background(), bson.D{})
+		log.Println(result, err)
+		time.Sleep(3 * time.Second)
+	}
 }
