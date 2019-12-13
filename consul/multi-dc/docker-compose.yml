@@ -1,0 +1,85 @@
+version: '2.4'
+
+services:
+
+  dc1-agent-1: 
+    image: consul:latest
+    environment:
+    - CONSUL_BIND_INTERFACE=eth0
+    networks:
+      consul-multi-dc:
+        ipv4_address: 192.168.0.3
+    command: "agent -retry-join dc1-server-bootstrap -client 0.0.0.0"
+  dc1-server-1: 
+    image: consul:latest
+    environment:
+    - CONSUL_BIND_INTERFACE=eth0
+    networks: 
+      consul-multi-dc:
+        ipv4_address: 192.168.0.11
+    command: "agent -server -retry-join dc1-server-bootstrap -client 0.0.0.0 -advertise-wan=192.168.0.11"
+
+  dc1-server-2:
+    image: consul:latest
+    environment:
+    - CONSUL_BIND_INTERFACE=eth0
+    networks: 
+      consul-multi-dc:
+        ipv4_address: 192.168.0.12
+    command: "agent -server -retry-join dc1-server-bootstrap -client 0.0.0.0 -advertise-wan=192.168.0.12"
+
+  dc1-server-bootstrap:
+    image: consul:latest
+    environment:
+    - CONSUL_BIND_INTERFACE=eth0
+    networks: 
+      consul-multi-dc:
+        ipv4_address: 192.168.0.13
+    ports:
+      - "8501:8500"
+    command: "agent -server -bootstrap-expect 3 -ui -client 0.0.0.0 -datacenter dc1  -retry-join-wan 192.168.0.33 -advertise-wan=192.168.0.13"
+
+  dc2-agent-1: 
+    image: consul:latest
+    environment:
+    - CONSUL_BIND_INTERFACE=eth0
+    networks:
+      consul-multi-dc:
+        ipv4_address: 192.168.0.23
+    command: "agent -retry-join dc2-server-bootstrap -datacenter dc2 -client 0.0.0.0"
+
+  dc2-server-1: 
+    image: consul:latest
+    environment:
+    - CONSUL_BIND_INTERFACE=eth0
+    networks: 
+      consul-multi-dc:
+        ipv4_address: 192.168.0.31
+    command: "agent -server -retry-join dc2-server-bootstrap -client 0.0.0.0 -datacenter dc2  -advertise-wan=192.168.0.31"
+
+  dc2-server-2:
+    image: consul:latest
+    environment:
+    - CONSUL_BIND_INTERFACE=eth0
+    networks: 
+      consul-multi-dc:
+        ipv4_address: 192.168.0.32
+    command: "agent -server -retry-join dc2-server-bootstrap -client 0.0.0.0 -datacenter dc2  -advertise-wan=192.168.0.32"
+
+  dc2-server-bootstrap:
+    image: consul:latest
+    environment:
+    - CONSUL_BIND_INTERFACE=eth0
+    networks: 
+      consul-multi-dc:
+        ipv4_address: 192.168.0.33
+    ports:
+      - "8502:8500"
+    command: "agent -server -bootstrap-expect 3 -ui -client 0.0.0.0 -datacenter dc2 -retry-join-wan=192.168.0.13 -advertise-wan=192.168.0.33"
+
+networks:
+  consul-multi-dc:
+    ipam:
+      driver: default
+      config:
+      - subnet: "192.168.0.0/24"
