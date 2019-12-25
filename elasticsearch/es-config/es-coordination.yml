@@ -1,0 +1,8 @@
+bootstrap.memory_lock: true
+discovery.seed_hosts: master1, master2, master3
+node.master: false
+node.data: false
+node.ingest: false
+cluster.name: "docker-swarm-cluster"
+network.host: 0.0.0.0
+action.destructive_requires_name: true
