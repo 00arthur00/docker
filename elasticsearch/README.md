@@ -1,9 +1,8 @@
-基于[elasticsearch-docker-swarm](https://github.com/jakubhajek/elasticsearch-docker-swarm)
 ## ENV
 ### 版本
-es:     7.5.0
-analysis-ik: 7.5.0
-kibana: 7.5.0
+es:     7.5.1
+
+kibana: 7.5.1
 
 linux: centos7 
 

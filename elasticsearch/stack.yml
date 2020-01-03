@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   coordination:
-    image: 00arthur00/elasticsearch-ik:7.5.0
+    image: 00arthur00/elasticsearch-ik:7.5.1
     # healthcheck:
     #   test: curl -fs http://localhost:9200/_cat/health || exit 1
     #   interval: 30s
@@ -20,9 +20,9 @@ services:
       - target: 9200
         published: 9200
         protocol: tcp
-        mode: host
+        # mode: host
     deploy:
-      endpoint_mode: dnsrr
+      # endpoint_mode: dnsrr
       mode: "replicated"
       replicas: 3
       resources:
@@ -30,7 +30,7 @@ services:
           memory: 4G
 
   master1:
-    image: 00arthur00/elasticsearch-ik:7.5.0
+    image:  00arthur00/elasticsearch-ik:7.5.1
     # healthcheck:
     #   test: curl -fs http://localhost:9200/_cat/health || exit 1
     #   interval: 30s
@@ -59,7 +59,7 @@ services:
           memory: 4G
 
   master2:
-    image: 00arthur00/elasticsearch-ik:7.5.0
+    image:  00arthur00/elasticsearch-ik:7.5.1
     # healthcheck:
     #   test: curl -fs http://localhost:9200/_cat/health || exit 1
     #   interval: 30s
@@ -88,7 +88,7 @@ services:
           memory: 4G
 
   master3:
-    image: 00arthur00/elasticsearch-ik:7.5.0
+    image:  00arthur00/elasticsearch-ik:7.5.1
     # healthcheck:
     #   test: curl -fs http://localhost:9200/_cat/health || exit 1
     #   interval: 30s
@@ -117,7 +117,7 @@ services:
           memory: 4G
 
   data1:
-    image: 00arthur00/elasticsearch-ik:7.5.0
+    image:  00arthur00/elasticsearch-ik:7.5.1
     # healthcheck:
     #   test: curl -fs http://localhost:9200/_cat/health || exit 1
     #   interval: 30s
@@ -143,9 +143,9 @@ services:
       replicas: 1
       resources:
         limits:
-          memory: 8G
+          memory: 16G
   data2:
-    image: 00arthur00/elasticsearch-ik:7.5.0
+    image:  00arthur00/elasticsearch-ik:7.5.1
     # healthcheck:
     #   test: curl -fs http://localhost:9200/_cat/health || exit 1
     #   interval: 30s
@@ -171,9 +171,9 @@ services:
       replicas: 1
       resources:
         limits:
-          memory: 8G
+          memory: 16G
   data3:
-    image: 00arthur00/elasticsearch-ik:7.5.0
+    image:  00arthur00/elasticsearch-ik:7.5.1
     # healthcheck:
     #   test: curl -fs http://localhost:9200/_cat/health || exit 1
     #   interval: 30s
@@ -199,13 +199,18 @@ services:
       replicas: 1
       resources:
         limits:
-          memory: 8G
+          memory: 16G
   kibana:
-    image: 00arthur00/kibana:7.5.1
+    image: registry.corp.ucarinc.com/umonibench/kibana:7.5.1
     environment:
-      - "ELASTICSEARCH_URL=http://data1:9200"
+      SERVER_NAME: kibana
+      ELASTICSEARCH_HOSTS: http://data1:9200
     networks:
       - esnet
+    ports:
+      - target: 5601
+        published: 5601
+        protocol: tcp
     deploy:
       mode: replicated
       replicas: 1
