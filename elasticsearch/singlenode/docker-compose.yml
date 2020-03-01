@@ -1,0 +1,12 @@
+version: "2.2"
+services:
+  es:
+    image: elasticsearch:7.5.1
+    ports:
+      - 9200:9200
+    volumes:
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+  mirage:
+    image: appbaseio/mirage
+    ports:
+      - "3030:3030"
