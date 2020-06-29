@@ -1,3 +1,6 @@
 [submodule "etcd"]
 	path = etcd
 	url = https://github.com/dwilbraham/docker-compose-etcd.git
+[submodule "docker-rabbitmq-cluster"]
+	path = docker-rabbitmq-cluster
+	url = https://github.com/bijukunjummen/docker-rabbitmq-cluster.git
