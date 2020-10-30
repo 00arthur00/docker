@@ -1,0 +1,7 @@
+version: "3.7"
+
+services:
+  redis:
+    image: pikadb/pika
+    ports:
+    - 6379:9221
