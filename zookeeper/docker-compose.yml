@@ -1,0 +1,59 @@
+version: '3.7'
+networks:
+  byfn:
+
+services:
+  zookeeper1:
+    image: zookeeper:3.4.11
+    container_name: zookeeper1
+    environment:
+        - ZOO_MY_ID=1
+        - ZOO_SERVERS=server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    ports:
+      - 2181:2181
+    networks:
+      - byfn
+
+  zookeeper2:
+    image: zookeeper:3.4.11
+    container_name: zookeeper2
+    environment:
+        - ZOO_MY_ID=2
+        - ZOO_SERVERS=server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    ports:
+      - 2182:2181
+    networks:
+      - byfn
+
+  zookeeper3:
+    image: zookeeper:3.4.11
+    container_name: zookeeper3
+    environment:
+        - ZOO_MY_ID=3
+        - ZOO_SERVERS=server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    ports:
+      - 2183:2181
+    networks:
+      - byfn
+  zkui:
+      image: juris/zkui
+      depends_on:
+        - zookeeper1
+      networks:
+      - byfn
+      ports:
+        - "9090:9090"
+      environment:
+        ZK_SERVER: "zookeeper1:2181,zookeeper2:2181,zookeeper3:2181"
+      restart: always
+  # zkui:
+  #     image: qnib/zkui
+  #     depends_on:
+  #       - zookeeper1
+  #     networks:
+  #     - byfn
+  #     ports:
+  #       - "9090:9090"
+  #     environment:
+  #       ZKUI_ZK_SERVER: "zookeeper1:2181,zookeeper2:2181,zookeeper3:2181"
+  #     restart: always
